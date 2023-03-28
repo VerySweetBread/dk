@@ -1,0 +1,38 @@
+{% load static %}
+
+
+<!doctype html>
+ 
+<head>
+   	<meta charset="utf-8">
+   	<title>KVANTORIUM REWARDS</title>
+	<!--flexible width of-->
+   	<meta name="viewport" content="width=device-width, user-scalable=no; initial-scale=1.0">
+  	<!--icons of panel-->
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'logotip/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'logotip/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'logotip/favicon-16x16.png' %}">
+	<link rel="manifest" href="{% static 'logotip/site.webmanifest' %}">
+	<link href = "{% static 'fonts/stylesheet.css' %}" rel = "stylesheet" type = "text/css" >
+	<!--style-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<!--bootstrap-->
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a href="/"><img src="{% static 'img/icon.png' %}" class="logo"></a>
+			<form action="{% url 'home' %}" method="get" class="search">
+				<img src="{% static 'img/search.png' %}" style="height: 30px;" alt=""><span><input name="q" type="text" class="field"><input  type="submit" value="Найти" class="submit"></span>
+			</form>
+			<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert());" alt=""></a>
+		</header>
+		<h1 class="heading">{% block title %}ДОСТОЯНИЕ КВАНТОРИУМА{% endblock title %}</h1>
+		{% include 'filters.html' %}
+		{% block content %}
+		
+		{% endblock content %}
+		{% include 'footer.html' %}
+	</div>
+	<script src="{% static 'js/script.js' %}"></script>
+</body>
