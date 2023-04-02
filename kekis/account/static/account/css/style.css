@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: BankGothic RUSS;
+    background-color: black;
+    color: white;
+}
+@font-face {
+    font-family: BankGothic;
+    src: url(../fonts/stylesheet.css);
+}
+::selection {
+	color: black;
+	background: #ffffff; /* Safari */
+	}
+::-moz-selection {
+	color: black;
+	background: #ffffff; /* Firefox */
+	}
+:root {
+    --index: calc(1vh + 1vw);
+}
+.wrapper {
+    margin: 0 calc(var(--index) * 15);
+}
+
+.account-info {
+    display: flex;
+}
