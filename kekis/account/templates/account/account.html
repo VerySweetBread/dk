@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 {% load static %}
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{name}}</title>
-
+    
     <link href = "{% static 'account/fonts/stylesheet.css' %}" rel = "stylesheet" type = "text/css">
 
     <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
@@ -14,15 +16,23 @@
 </head>
 <body>
     <div class="wrapper">
-        <header></header>
+        <header>
+			<a href="/"><img src="{% static 'img/icon.png' %}" class="logo"></a>
+			<form action="{% url 'home' %}" method="get" class="search">
+				<img src="{% static 'img/search.png' %}" style="height: 30px;" alt=""><span><input name="q" type="text" class="field"><input  type="submit" value="Найти" class="submit"></span>
+			</form>
+			<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert());" alt=""></a>
+		</header>
+        <div class="heading">ЛИЧНЫЙ КАБИНЕТ</в>
         <div class="account-info">
-            <div class="account-info__avatar">
-                <img class="" src="" alt="" srcset="">
-                <div class="account-info__social-credits"></div>
+            <div class="account-info__logo">
+                <img class="account-info__avatar" src="{{account.photo.url}}" alt="" srcset="">
+                <div class="account-info__social-credits">10000000fghfghfhgfhgjgjjhg00</div>
             </div>
             <div class="account-info__info">
-                <div class="account-info__name">Ефимов Георгий</div>
-                <div class="account-info__descrption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nobis suscipit unde perferendis, et distinctio consequatur veniam deserunt provident placeat aut. Qui, voluptates numquam. Dicta ullam voluptatibus ducimus quae repellat!</div>
+                <div class="account-info__name">{{account.name}}</div>
+                <div class="account-info__descrption">{{account.description}}</div>
+                <div class="account-info__email">{{account.email}}</div>
             </div>
         </div>
 
