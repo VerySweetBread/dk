@@ -8,3 +8,7 @@ class Account(models.Model):
     email = models.EmailField(max_length=200)
     teacher = models.CharField(max_length=40)
     time_created = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self) -> str:
+        return self.name
+    

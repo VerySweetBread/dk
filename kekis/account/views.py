@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .models import Account
 
 def main(request,pk):
-    return render(request,'account/account.html',{"name":pk})
+    account = Account.objects.get(name=pk)
+    context = {'account':account}
+    return render(request,'account/account.html', context)

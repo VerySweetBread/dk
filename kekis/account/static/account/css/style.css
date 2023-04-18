@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0);
 
     font-family: BankGothic RUSS;
     background-color: black;
@@ -26,6 +27,106 @@
     margin: 0 calc(var(--index) * 15);
 }
 
+/* Заглавие */
+
+header{
+	justify-content: space-between;
+	display: flex;
+	padding: 20px 0 0 0;
+	margin: 0;
+	color: white;
+	background-color: black;
+}
+header{
+	justify-content: space-between;
+	display: flex;
+	padding: 20px 0 0 0;
+	margin: 0;
+	color: white;
+	background-color: black;
+}
+.logo{
+	background-color: white;
+	filter: invert(1);
+	height: 50px;
+}
+.heading{
+	background-color: rgba(0, 0, 0, 0);
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeOut;
+	animation-name: fadeOut;
+	padding-top: 50px;
+	text-align: center;
+	font-size: 3em;
+}
+.search_mobile{
+	display: none;
+}
+.search{
+	position: relative;
+	left: 0;
+	display: flex;
+	align-items: center;
+	transition: 0.4s;
+}
+.search:hover{
+	left: -285px;
+	transition: 0.7s;
+}
+.search > span{
+	left: 30px;
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	position: absolute;
+	transition: 0.2s;
+	transform: rotateX(10);
+}
+.search:hover > span{
+	opacity: 1;
+	visibility: visible;
+	transition: 0.5s;
+}
+.search > span > input{
+	padding: 5px;
+	margin: 0 6px;
+	border: 1px solid;
+	box-shadow: 0 0 10px white;
+}
+.search > img{
+	transform: rotate(0deg);
+	transition: 0.5s;
+}
+.search:hover > img{
+	transform: rotate(90deg);
+	transition: 0.5s;
+}
+.submit{
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
 .account-info {
     display: flex;
+    margin-top: calc(var(--index) * 2);
+}
+.account-info__logo {
+    width: calc(var(--index) * 7.5);
+}
+.account-info__avatar {
+    width: calc(var(--index) * 6.5);
+    height: calc(var(--index) * 6.5);
+    background-color: white;
+
+    margin: 0 50px 0 0;
+    box-shadow: 0 0 10px 10px white;
+}
+.account-info__social-credits {
+    width: calc(var(--index) * 6.5);
+    white-space: wrap;
+    overflow:auto;
 }
