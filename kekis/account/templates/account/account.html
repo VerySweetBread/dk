@@ -23,16 +23,19 @@
 			</form>
 			<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert());" alt=""></a>
 		</header>
-        <div class="heading">ЛИЧНЫЙ КАБИНЕТ</в>
+        <div class="heading">ЛИЧНЫЙ КАБИНЕТ</div>
         <div class="account-info">
             <div class="account-info__logo">
                 <img class="account-info__avatar" src="{{account.photo.url}}" alt="" srcset="">
-                <div class="account-info__social-credits">10000000fghfghfhgfhgjgjjhg00</div>
+                <p class="account-info__social-credits">1000000 <br>СОЦИАЛЬНЫХ КРЕДИТОВ</p>
             </div>
             <div class="account-info__info">
                 <div class="account-info__name">{{account.name}}</div>
                 <div class="account-info__descrption">{{account.description}}</div>
-                <div class="account-info__email">{{account.email}}</div>
+                <div class="account-info__email">
+                    <span>Контактные данные:</span><br>
+                    {{account.email}}
+                </div>
             </div>
         </div>
 

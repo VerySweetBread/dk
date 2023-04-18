@@ -27,7 +27,11 @@
     margin: 0 calc(var(--index) * 15);
 }
 
+<<<<<<< HEAD
 /* Заглавие */
+=======
+/* Шапка */
+>>>>>>> 3977d66382862d63c2a04e4b105e41d7f87b28e0
 
 header{
 	justify-content: space-between;
@@ -37,6 +41,7 @@ header{
 	color: white;
 	background-color: black;
 }
+<<<<<<< HEAD
 header{
 	justify-content: space-between;
 	display: flex;
@@ -45,6 +50,8 @@ header{
 	color: white;
 	background-color: black;
 }
+=======
+>>>>>>> 3977d66382862d63c2a04e4b105e41d7f87b28e0
 .logo{
 	background-color: white;
 	filter: invert(1);
@@ -62,6 +69,12 @@ header{
 	text-align: center;
 	font-size: 3em;
 }
+<<<<<<< HEAD
+=======
+
+/* Поиск */
+
+>>>>>>> 3977d66382862d63c2a04e4b105e41d7f87b28e0
 .search_mobile{
 	display: none;
 }
@@ -109,6 +122,7 @@ header{
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
 
 .account-info {
     display: flex;
@@ -129,4 +143,27 @@ header{
     width: calc(var(--index) * 6.5);
     white-space: wrap;
     overflow:auto;
+=======
+.account-info {
+    display: flex;
+}
+.account-info__logo {
+	width: calc(var(--index) * 7.5);
+	text-align: center;
+	margin: 0 var(--index) var(--index) 0;
+}
+.account-info__avatar {
+	width: calc(var(--index) * 6.5);
+}
+.account-info__social-credits {
+	word-break: break-all;
+}
+.account-info__name {
+	font-size: calc(var(--index) * 0.8);
+	margin-bottom: calc(var(--index) * 0.5);
+}
+.account-info__email {
+	margin-top: 10px;
+	line-height: 1.4;
+>>>>>>> 3977d66382862d63c2a04e4b105e41d7f87b28e0
 }

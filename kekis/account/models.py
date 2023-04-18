@@ -9,6 +9,10 @@ class Account(models.Model):
     teacher = models.CharField(max_length=40)
     time_created = models.DateTimeField(auto_now_add=True)
     
+<<<<<<< HEAD
     def __str__(self) -> str:
+=======
+    def __str__(self):
+>>>>>>> 3977d66382862d63c2a04e4b105e41d7f87b28e0
         return self.name
     
