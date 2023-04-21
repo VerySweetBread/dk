@@ -6,4 +6,5 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('project/<str:pk>/', views.project, name="project"),
     path('kvantum/', views.kvantum, name="kvantum"),
+    path('account/<str:pk>/', views.account, name="account_home"),
 ]

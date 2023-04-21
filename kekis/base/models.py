@@ -15,6 +15,23 @@ class Project(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+class Account(models.Model):
+    name = models.CharField(max_length=80)
+    description = models.CharField(max_length=200)
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    age = models.IntegerField()
+    email = models.EmailField(max_length=200)
+    teacher = models.CharField(max_length=40)
+    time_created = models.DateTimeField(auto_now_add=True)
+    rank = models.IntegerField()
+    login = models.CharField(max_length=40)
+    password = models.CharField(max_length=40)
+
+
+
+    class Meta:
+        unique_together = ('email', 'teacher', 'login', 'password','age','name')
 
 class Image(models.Model):
     name = models.CharField(max_length=50, verbose_name="Название изображения")

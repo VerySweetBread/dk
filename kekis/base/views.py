@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Project, Contacts, Image
+from .models import Project, Contacts, Image, Account
 from django.db.models import Q
+from django.http import HttpResponse
 
 
 def home(request):
@@ -17,6 +18,14 @@ def project(request, pk):
                'contacts':contacts,
                'images':images}
     return render(request, 'base/project.html', context)
+
+def account(request,pk):
+    account = Account.objects.get(id=pk)
+    context = {'account':account}
+    return render(request,'base/account.html', context)
+
+    return HttpResponse('<p>wsdada</p>')
+
 
 def kvantum(request):
     q = request.GET.get('q')
