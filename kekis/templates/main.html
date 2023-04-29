@@ -1,8 +1,10 @@
+
+
+
+<!DOCTYPE html>
+
+
 {% load static %}
-
-
-<!doctype html>
- 
 <head>
    	<meta charset="utf-8">
    	<title>KVANTORIUM REWARDS</title>
@@ -25,7 +27,7 @@
 			<form action="{% url 'home' %}" method="get" class="search">
 				<img src="{% static 'img/search.png' %}" style="height: 30px;" alt=""><span><input name="q" type="text" class="field"><input  type="submit" value="Найти" class="submit"></span>
 			</form>
-			<img class="account-info__avatar" src="{{account.photo.url}}" alt="" srcset="">
+			<a href="/"><img class="account-info__avatar" style=" width: 50px; height: 50px; box-shadow: 0 0 2px 2px white;" src="{{account.photo.url}}" alt="" srcset=""></a>
 			<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert();" alt=""></a>
 		</header>
 		<h1 class="heading">{% block title %}ДОСТОЯНИЕ КВАНТОРИУМА{% endblock title %}</h1>
