@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Project, Contacts, Image, Account
 from django.db.models import Q
 from django.http import HttpResponse
@@ -29,7 +29,16 @@ def account(request, pk):
 
 
 def login(request):
-    return render(request, 'base/login.html')
+    
+    if 'id' in request.session:
+        id_per = int(request.session['id'])
+        response = redirect(f'/account/{id_per}/')
+        return response
+    else:
+        return render(request, 'base/login.html')
+    
+    
+    
 
 def kvantum(request):
     account = Account.objects.get(id=1)
