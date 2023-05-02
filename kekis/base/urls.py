@@ -8,4 +8,5 @@ urlpatterns = [
     path('kvantum/', views.kvantum, name="kvantum"),
     path('account/<str:pk>/', views.account, name="account_home"),
     path('login/', views.login, name="login"),
+    path('shop/', views.shop, name="shop"),
 ]
