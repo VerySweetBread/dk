@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Project, Contacts, Image, Account
 from django.db.models import Q
 from django.http import HttpResponse
-
+from .forms import *
 
 def home(request):
     account = Account.objects.get(id=1)
@@ -29,13 +29,16 @@ def account(request, pk):
 
 
 def login(request):
-    
+    form_login = LoginForm() 
+    context = {'form': form_login}
     if 'id' in request.session:
         id_per = int(request.session['id'])
         response = redirect(f'/account/{id_per}/')
         return response
     else:
-        return render(request, 'base/login.html')
+        """request.session.set_expiry(10)
+        request.session['id'] = 1"""
+        return render(request, 'base/login.html', context)
     
     
     

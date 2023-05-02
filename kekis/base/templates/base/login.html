@@ -18,17 +18,18 @@
         <header>
 			<a href="/"><img src="{% static 'img/icon.png' %}" class="logo"></a>
 		</header>
-            <div class="heading" style="font-size: 70px;">Вход</div>
+        <div class="heading" style="font-size: 70px;">Вход</div>
         <div class="registration-cssave" style="width: 370px; height: 370px; position: absolute; top: 50%; left: 50%; margin: -185px 0 0 -185px;">
-            <div class="form-control" style= "height: 30px; width: 240px; margin-left: auto; margin-right: auto;">
-                <input class="login_field" style="width: 240px; height: 30px; margin-left: auto; margin-right: auto; outline-style: solid; outline-color: white; border-radius: 5px;" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder=" Логин" required>
-            </div>
-            <div class="form-group" style="margin-left: auto; height: 30px; margin-right: auto; width: 240px; margin-top: 30px;">
-                <input class="pass_field" style="width: 240px; height: 30px; outline-style: solid; outline-color: white; border-radius: 5px;" type="password" name="Пароль" minlength="6" id="password" placeholder=" Пароль" required>
-            </div>
+            <form action="{% url 'login'%}" method = "post">
+                {% csrf_token %}
+                <div class = "form-group" style="border-radius: 5px; outline-style: solid; outline-color: white;"><p><label class = "form-label" for="{{ form.login.id_for_label}}">{{form.login.label}}:  </label>{{form.login}}</p></div>
+                <div class = "form-error">{{form.login.errors}}</div>
+                <div class = "form-group" style="margin-top: 30px; border-radius: 5px; outline-style: solid; outline-color: white;"><p><label class = "form-label" for="{{ form.password.id_for_label}}">{{form.password.label}}:  </label>{{form.password}}</p></div>
+                <div class = "form-error">{{form.login.errors}}</div>
             <div class = "field_button" style="border-radius: 5px; height: 30px; outline-color: white; outline-style: solid; width: 240px; margin-top: 34px; margin-left: auto; margin-right: auto;"><button style="height: 30px; width: 240px; color: white;" class="login_button">
                 Войти
               </button></div>
+            </form>
         </div>
         
     </div>
