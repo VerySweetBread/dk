@@ -7,7 +7,8 @@ from django.contrib.auth import authenticate, login
 from django_pushall import Pushall
 
 def home(request):
-    account = Account.objects.get(id=1)
+    id_per = int(request.session['id'])
+    account = Account.objects.get(id=id_per)
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     projects = Project.objects.filter(Q(name__iregex=q) | Q(description__iregex=q) | Q(kvantum__icontains=q))
     context = {'projects': projects, 'account': account}
@@ -64,4 +65,7 @@ def kvantum(request):
 
 
 def about(request):
+    return render(request, 'base/about.html')
+
+def shop(request):
     return render(request, 'base/about.html')
