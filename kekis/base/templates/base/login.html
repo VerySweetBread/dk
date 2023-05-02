@@ -21,7 +21,7 @@
         <div class="heading" style="font-size: 70px;">Вход</div>
         <div class="registration-cssave" style="width: 370px; height: 370px; position: absolute; top: 50%; left: 50%; margin: -185px 0 0 -185px;">
             <form action="{% url 'login'%}" method = "post">
-                {% csrf_token %}
+                <!--{% csrf_token %}-->
                 <div class = "form-group" style="border-radius: 5px; outline-style: solid; outline-color: white;"><p><label class = "form-label" for="{{ form.login.id_for_label}}">{{form.login.label}}:  </label>{{form.login}}</p></div>
                 <div class = "form-error">{{form.login.errors}}</div>
                 <div class = "form-group" style="margin-top: 30px; border-radius: 5px; outline-style: solid; outline-color: white;"><p><label class = "form-label" for="{{ form.password.id_for_label}}">{{form.password.label}}:  </label>{{form.password}}</p></div>

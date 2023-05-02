@@ -3,6 +3,8 @@ from .models import Project, Contacts, Image, Account
 from django.db.models import Q
 from django.http import HttpResponse
 from .forms import *
+from django.contrib.auth import authenticate, login
+from django_pushall import Pushall
 
 def home(request):
     account = Account.objects.get(id=1)
@@ -27,20 +29,30 @@ def account(request, pk):
     context = {'account': account}
     return render(request, 'base/account.html', context)
 
-
 def login(request):
-    form_login = LoginForm() 
-    context = {'form': form_login}
     if 'id' in request.session:
         id_per = int(request.session['id'])
         response = redirect(f'/account/{id_per}/')
         return response
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            usr_account = Account.objects.get(login=cd["login"])
+            if(usr_account.password == cd["password"]):
+                id_usr = int(usr_account.id)
+                request.session.set_expiry(24*3600)
+                request.session['id'] = id_usr
+                response = redirect(f'/account/{id_usr}/')
+                return response
+            else:
+                Pushall.self(title="Ploxoy otvet", text = "lapux")
+
+        else:
+            Pushall.self(title="Ploxoy adad", text = "asdada")
     else:
-        """request.session.set_expiry(10)
-        request.session['id'] = 1"""
-        return render(request, 'base/login.html', context)
-    
-    
+        form = LoginForm()
+    return render(request, 'base/login.html', {'form': form})
     
 
 def kvantum(request):
