@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Image
-from .models import Project
-from .models import Contacts, Account
+from .models import *
 
 
 class ImageInline(admin.TabularInline):
@@ -15,3 +13,4 @@ admin.site.register(Contacts)
 admin.site.register(Image)
 admin.site.register(Project)
 admin.site.register(Account)
+admin.site.register(Shop)

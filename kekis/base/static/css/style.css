@@ -371,6 +371,14 @@ header{
 	transform: rotate(90deg);
 	transition: transform 0.5s;
 }
+a{
+	z-index: 7;
+	opacity: 1;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 130%;
+	margin: 10px 0;
+}
 h2{
 	z-index: 7;
 	opacity: 1;
@@ -382,6 +390,27 @@ h2{
 p{
 	margin: 5px 10px;
 	background-color: rgba(0, 0, 0, 0);
+}
+.extra_block{
+	position: relative;
+	overflow:hidden;
+	z-index: 1;
+	text-align: center;
+	flex-basis: 333px;
+	flex-grow: 1;
+	width: 500px;
+	height: 250px;
+	padding: 5px;
+	margin: 20px 10px;
+	font-size: 110%;
+	opacity: 0.5;
+	background-position:center center;
+   	background-size:cover;
+	transform: translateY(100px);
+	min-height: auto;
+	vertical-align: top;
+	border: 1px solid rgba(255, 255, 255, 0.37);
+	transition: all 0.4s;
 }
 .main_block{
 	position: relative;
