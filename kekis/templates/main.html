@@ -17,19 +17,22 @@
 	<link href = "{% static 'fonts/stylesheet.css' %}" rel = "stylesheet" type = "text/css" >
 	<!--style-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
 	<!--bootstrap-->
 </head>
 <body>
 	<div class="container">
 		<header>
 			<a href="/"><img src="{% static 'img/icon.png' %}" class="logo"></a>
-			<form action="{% url 'home' %}" method="get" class="search">
-				<img src="{% static 'img/search.png' %}" style="height: 30px;" alt=""><span><input name="q" type="text" class="field"><input  type="submit" value="Найти" class="submit"></span>
-			</form>
-			<a href="http://127.0.0.1:8000/shop/"><img class="shop-avatar" style=" width: 50px; height: 50px;" src="base\static\logotip\icon.svg" alt="" srcset=""></a>
-			<a href="login/"><img class="account-info__avatar" style=" width: 50px; height: 50px; box-shadow: 0 0 2px 2px white;" src="{{account.photo.url}}" alt="" srcset=""></a>
-			<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert();" alt=""></a>
-		</header>
+			<div class="header__buttons">
+				<form action="{% url 'home' %}" method="get" class="search">
+					<img src="{% static 'img/search.png' %}" style="height: 30px;" alt=""><span><input name="q" type="text" class="field"><input  type="submit" value="Найти" class="submit"></span>
+				</form>
+				<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert();" alt=""></a>
+				<a href="/shop/"><img class="shop-avatar" style=" width: 40px; height: 40px;" src="{% static 'img/shop_icon.png'%}" alt="" srcset=""></a>
+				<a href="/login/"><img class="account-info__avatar" style=" width: 40px; height: 40px; box-shadow: 0 0 2px 2px white;" src="{{account.photo.url}}" alt="" srcset=""></a>
+			</div>
+			</header>
 		<h1 class="heading">{% block title %}ДОСТОЯНИЕ КВАНТОРИУМА{% endblock title %}</h1>
 		{% include 'filters.html' %}
 		{% block content %}

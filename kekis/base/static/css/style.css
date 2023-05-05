@@ -61,6 +61,10 @@
 	color: black;
 	background: #ffffff; /* Firefox */
 	}
+	
+:root {
+    --index: calc(1vh + 1vw);
+}
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
 
@@ -102,10 +106,19 @@ header{
 	color: white;
 	background-color: black;
 }
+
 .logo{
 	background-color: white;
 	filter: invert(1);
 	height: 50px;
+}
+.header__buttons{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.header__buttons * {
+	margin-left: calc(var(--index) * 1);
 }
 .heading{
 	background-color: rgba(0, 0, 0, 0);
