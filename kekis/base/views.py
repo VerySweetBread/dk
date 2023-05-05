@@ -32,6 +32,21 @@ def project(request, pk):
                'account': account}
     return render(request, 'base/project.html', context)
 
+def product(request, pk):
+    if "id" in request.session:
+        id_per = int(request.session['id'])
+    else:
+        id_per = 2
+    account = Account.objects.get(id=id_per)
+    shop = Shop.objects.get(id=pk)
+    contacts = Contacts.objects.all()
+    images = Image.objects.all()
+    context = {'shop': shop,
+               'contacts': contacts,
+               'images': images,
+               'account': account}
+    print(images[0].image.url)
+    return render(request, 'base/product.html', context)
 
 def account(request, pk):
     account = Account.objects.get(id=pk)

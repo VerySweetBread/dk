@@ -16,7 +16,9 @@ class Project(models.Model):
         return self.name
 class Shop(models.Model):
     title = models.CharField(max_length=40)
+    description = models.CharField(max_length=400)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    additionals = models.ManyToManyField("Image", null=True, blank=True, verbose_name="Дополнительные изображения")
     price = models.IntegerField()
 
 class Account(models.Model):
