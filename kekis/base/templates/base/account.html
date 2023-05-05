@@ -1,57 +1,31 @@
-<!DOCTYPE html>
-{% load static%}
 
+{% extends 'main.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{name}}</title>
-    
-    <link href = "{% static 'fonts/stylesheet.css' %}" rel = "stylesheet" type = "text/css">
-
-    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-    <script src="{% static 'js/script.js' %}" defer></script>
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-			<a href="/"><img src="{% static 'img/icon.png' %}" class="logo"></a>
-			<form action="{% url 'home' %}" method="get" class="search">
-				<img src="{% static 'img/search.png' %}" style="height: 30px;" alt=""><span><input name="q" type="text" class="field"><input  type="submit" value="Найти" class="submit"></span>
-			</form>
-			<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert();" alt=""></a>
-		</header>
-        <div class="heading">ЛИЧНЫЙ КАБИНЕТ</div>
-        <div class="account-info">
-            <div class="account-info__logo">
-                <img class="account-info__avatar" src="{{account.photo.url}}" alt="" srcset="">
-                <p class="account-info__social-credits">{{account.rank}} КРЕДИТОВ</p>
-                <p class="account-info__social-credits"><a href="/rating/">{{account.score}} место</a></p>
-            </div>
-            <div class="account-info__info">
-                <div class="account-info__name">{{account.name}}</div>
-                <div class="account-info__descrption">{{account.description}}</div>
-                <div class="account-info__email">
-                    <span>Контактные данные:</span><br>
-                    {{account.email}}
-                </div>
+{% block title %}ПРОФИЛЬ{% endblock title %}
+{% block content %}
+    <div class="account-info">
+        <div class="account-info__logo">
+            <img class="account-info__avatar" src="{{account.photo.url}}" alt="" srcset="">
+            <p class="account-info__social-credits">{{account.rank}} <br> КРЕДИТОВ</p>
+            <p class="account-info__social-credits"><a href="/rating/">{{account.score}} место</a></p>
+        </div>
+        <div class="account-info__info">
+            <div class="account-info__name">{{account.name}}</div>
+            <div class="account-info__descrption">{{account.description}}</div>
+            <div class="account-info__email">
+                <span>Контактные данные:</span><br>
+                {{account.email}}
             </div>
         </div>
-
-        <div class="main-block">
-            <div class="projects">
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-            </div>
-        </div>
-        <footer>
-
-        </footer>
     </div>
-</body>
-</html>
+
+    <div class="main-block">
+        <div class="projects">
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+        </div>
+    </div>
+    {% endblock content %}

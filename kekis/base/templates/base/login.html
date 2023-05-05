@@ -1,37 +1,22 @@
-<!DOCTYPE html>
-{% load static%}
+{% extends 'main.html' %}
 
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{name}}</title>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link href = "{% static 'fonts/stylesheet.css' %}" rel = "stylesheet" type = "text/css">
+{% block content %}
 
-    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-			<a href="/"><img src="{% static 'img/icon.png' %}" class="logo"></a>
-		</header>
-        <div class="heading" style="font-size: 70px;">Вход</div>
-        <div class="registration-cssave" style="width: 370px; height: 370px; position: absolute; top: 50%; left: 50%; margin: -185px 0 0 -185px;">
-            <form action="{% url 'login'%}" method = "post">
-                <!--{% csrf_token %}-->
-                <div class = "form-group" style="border-radius: 5px; outline-style: solid; outline-color: white;"><p><label class = "form-label" for="{{ form.login.id_for_label}}">{{form.login.label}}:  </label>{{form.login}}</p></div>
+        <div class="registration-cssave" >
+            <form action="{% url 'login'%}" class="registration-cssave__form" method = "post">
+                {% csrf_token %}
+                <div class = "form-group"><p>
+                    <label class = "form-label" for="{{ form.login.id_for_label}}">{{form.login.label}}:  </label>
+                    {{form.login}}</p>
+                </div>
                 <div class = "form-error">{{form.login.errors}}</div>
-                <div class = "form-group" style="margin-top: 30px; border-radius: 5px; outline-style: solid; outline-color: white;"><p><label class = "form-label" for="{{ form.password.id_for_label}}">{{form.password.label}}:  </label>{{form.password}}</p></div>
+                <div class = "form-group"><p><label class = "form-label" for="{{ form.password.id_for_label}}">{{form.password.label}}:  </label>{{form.password}}</p></div>
                 <div class = "form-error">{{form.login.errors}}</div>
-            <div class = "field_button" style="border-radius: 5px; height: 30px; outline-color: white; outline-style: solid; width: 240px; margin-top: 34px; margin-left: auto; margin-right: auto;"><button style="height: 30px; width: 240px; color: white;" class="login_button">
-                Войти
-              </button></div>
+                <div class = "field_button">
+                    <button class="login_button">Войти</button>
+                </div>
             </form>
         </div>
         
-    </div>
-</body>
-</html>
+{% endblock %}

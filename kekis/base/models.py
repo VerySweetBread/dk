@@ -19,6 +19,9 @@ class Shop(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     price = models.IntegerField()
 
+    def __str__(self) -> str:
+        return self.title
+
 class Account(models.Model):
     name = models.CharField(max_length=80)
     description = models.CharField(max_length=200)
