@@ -11,7 +11,7 @@
     <div class="sim-slider">
         <ul class="sim-slider-list">
             <li class="block"></li>
-            {% for image in shop.additionals.all %}
+            {% for image in images %}
                 <li class="sim-slider-element"><img src="{{image.image.url}}" alt="{{shop.image.id}}"></li>
             {% endfor %}
         </ul>

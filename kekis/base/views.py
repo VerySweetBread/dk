@@ -45,7 +45,7 @@ def product(request, pk):
                'contacts': contacts,
                'images': images,
                'account': account}
-    print(images[0].image.url)
+
     return render(request, 'base/product.html', context)
 
 def account(request, pk):
