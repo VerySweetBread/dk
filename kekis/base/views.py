@@ -49,9 +49,14 @@ def product(request, pk):
     return render(request, 'base/product.html', context)
 
 def account(request, pk):
-    account = Account.objects.get(id=pk)
-    context = {'account': account}
-    return render(request, 'base/account.html', context)
+    d = request.session.get('id')
+    d = "/" + str(d) + "/"
+    if d in str(request.path):
+        account = Account.objects.get(id=pk)
+        context = {'account': account}
+        return render(request, 'base/account.html', context)
+    else:
+        return redirect('/login/')
 
 def login(request):
     if 'id' in request.session:
