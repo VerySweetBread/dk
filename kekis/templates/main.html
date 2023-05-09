@@ -30,7 +30,12 @@
 				</form>
 				<a class="search_mobile" href=""><img src="{% static 'img/search.png' %}" style="height: 30px; filter: invert();" alt=""></a>
 				<a href="/shop/"><img class="shop-avatar" style=" width: 40px; height: 40px;" src="{% static 'img/shop_icon.png'%}" alt="" srcset=""></a>
-				<a href="/login/"><img class="account-info__avatar" style=" width: 40px; height: 40px; box-shadow: 0 0 2px 2px white;" src="{{account.photo.url}}" alt="" srcset=""></a>
+				<a href="/login/">
+					{% if account.photo.url %}
+						<img class="account-info__avatar" style=" width: 40px; height: 40px; box-shadow: 0 0 2px 2px white;" src="{{account.photo.url}}" alt="" srcset="">
+				  	{% else %}
+					  	<img class="shop-avatar" style="width: 40px; height: 40px; box-shadow: 0 0 2px 2px white;" src="{% static 'img/person.png' %}" alt="" srcset="">
+				  	{% endif %}</a>
 			</div>
 			</header>
 		<h1 class="heading">{% block title %}ДОСТОЯНИЕ КВАНТОРИУМА{% endblock title %}</h1>
