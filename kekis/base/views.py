@@ -17,6 +17,20 @@ def home(request):
     return render(request, 'base/home.html', context)
 
 
+def buy(request, pk):
+    if "id" in request.session:
+        id_per = int(request.session['id'])
+    else:
+        id_per = 2
+    account = Account.objects.get(id=id_per)
+    shop = Shop.objects.get(id=pk)
+    contacts = Contacts.objects.all()
+    context = {'shop': shop,
+               'contacts': contacts,
+               'account': account}
+    return render(request, 'base/buy.html', context)
+
+
 def project(request, pk):
     if "id" in request.session:
         id_per = int(request.session['id'])
